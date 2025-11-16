@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Padhai</title>
+
+<style>
+    @media (max-width: 480px) {
+    h1 {
+        font-size: 2.2rem;
+        margin-top: 40px;
+    }
+
+    #messageBox {
+        width: 90%;
+        padding: 20px;
+    }
+
+    #btn {
+        font-size: 1rem;
+        padding: 10px 18px;
+    }
+
+    #result {
+        font-size: 1.5rem;
+        margin-top: 25px;
+    }
+}
+
+    body {
+        margin: 0;
+        padding: 0;
+        background: #0d0d0d;
+        color: white;
+        font-family: "Poppins", sans-serif;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    h1 {
+        margin-top: 60px;
+        font-size: 3rem;
+        animation: glow 1.5s infinite alternate;
+    }
+
+    @keyframes glow {
+        from { text-shadow: 0 0 15px #ff00ff; }
+        to { text-shadow: 0 0 30px #00eaff, 0 0 40px #ff00ff; }
+    }
+
+    #messageBox {
+        margin: auto;
+        margin-top: 50px;
+        width: 80%;
+        max-width: 600px;
+        padding: 25px;
+        background: rgba(255,255,255,0.1);
+        backdrop-filter: blur(8px);
+        border-radius: 20px;
+        box-shadow: 0 0 20px #ff00ff;
+        animation: floaty 3s infinite ease-in-out;
+    }
+
+    @keyframes floaty {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-12px); }
+    }
+
+    #btn {
+        margin-top: 25px;
+        padding: 12px 25px;
+        font-size: 1.2rem;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        background: linear-gradient(90deg, #ff0099, #ff00ff, #7f00ff);
+        color: white;
+        transition: 0.3s;
+    }
+
+    #btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 15px #ff00ff;
+    }
+
+    #result {
+        display: none;
+        margin-top: 40px;
+        font-size: 2rem;
+        animation: pop 0.6s ease forwards;
+    }
+
+    @keyframes pop {
+        from { transform: scale(0); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+
+    .shake {
+        animation: shakeAnim 0.5s infinite;
+    }
+
+    @keyframes shakeAnim {
+        0% { transform: translateX(0); }
+        25% { transform: translateX(-5px); }
+        50% { transform: translateX(5px); }
+        75% { transform: translateX(-5px); }
+        100% { transform: translateX(0); }
+    }
+</style>
+</head>
+
+<body>
+
+<h1>🔥 ANNA, LISTEN UP 🔥</h1>
+
+<div id="messageBox">
+    <p style="font-size:1.4rem;">Tap to reveal your priority update</p>
+    <button id="btn">Reveal Update</button>
+</div>
+
+<div id="result"></div>
+
+<script>
+    const btn = document.getElementById("btn");
+    const box = document.getElementById("messageBox");
+    const result = document.getElementById("result");
+
+    btn.addEventListener("click", () => {
+        box.classList.add("shake");
+
+        setTimeout(() => {
+            box.style.display = "none";
+            result.style.display = "block";
+
+            result.innerHTML = `
+                📝 Your IIT Assignment is still WAITING.<br><br>
+                GO. DO. IT. NOW. <br><br>
+                <span style="color:#00eaff;">— Agent 🥷</span>
+            `;
+        }, 0);
+    });
+</script>
+
+</body>
+</html>
